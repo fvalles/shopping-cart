@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import { ThemeProvider as Provider } from 'styled-components';
-import { theme } from './theme';
+import { DefaultTheme, ThemeProvider as Provider } from 'styled-components';
+import { Colors, Fonts } from '.';
 
 interface ThemeProviderProps {
   children?: React.ReactNode;
@@ -8,4 +8,14 @@ interface ThemeProviderProps {
 
 export const ThemeProvider: FunctionComponent<ThemeProviderProps> = ({
   children,
-}) => <Provider theme={theme}>{children}</Provider>;
+}) => (
+  <Provider
+    theme={
+      {
+        Colors,
+        Fonts,
+      } as DefaultTheme
+    }>
+    {children}
+  </Provider>
+);

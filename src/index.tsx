@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import { GlobalStyle } from './core/theme';
 import { ThemeProvider } from './core/theme/theme-provider';
 
 const root = ReactDOM.createRoot(
@@ -10,6 +11,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <ThemeProvider>
     <React.StrictMode>
+      <GlobalStyle />
       <App />
     </React.StrictMode>
   </ThemeProvider>,
