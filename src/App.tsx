@@ -7,7 +7,7 @@ const App: FunctionComponent = () => (
       <h1>Shopping cart</h1>
     </div>
     <div>
-      <Button title="Checkout" />
+      <Button onClick={() => {}} title="Checkout" />
     </div>
   </>
 );

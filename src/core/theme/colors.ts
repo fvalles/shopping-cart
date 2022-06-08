@@ -14,3 +14,4 @@ export const Colors = {
 };
 
 export type ColorsType = typeof Colors;
+export type KeyColors = keyof ColorsType;
