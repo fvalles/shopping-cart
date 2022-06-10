@@ -1,4 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
+import { Colors } from './colors';
+import backgroundImage from '../../assets/images/background.png';
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -113,6 +115,11 @@ export const GlobalStyle = createGlobalStyle`
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: ${Colors.summaryText};
+    background-image: url(${backgroundImage});
+    background-position: top left;
+    background-size: cover;
+    height: 100vh;
     line-height: 1;
   }
 

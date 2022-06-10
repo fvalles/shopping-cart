@@ -7,6 +7,7 @@ export const Colors = {
   productPrice: palette.black,
   productQuantity: palette.faintFern,
   productTitle: palette.mischka,
+  separator: palette.blackMarketLight,
   summaryBackground: palette.bleachedSilk,
   summaryHeading: palette.stormGrey,
   summaryText: palette.blackMarket,
