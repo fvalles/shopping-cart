@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { KeyColors } from '../../core/theme/colors';
-import { ButtonText } from '../typography';
+import { ButtonSmall } from '../typography';
 
 /**
  * Styled Components
@@ -46,6 +46,6 @@ export const Button: FunctionComponent<ButtonProps> = ({
   color,
 }) => (
   <StyledButton background={background} onClick={onClick}>
-    <ButtonText color={color}>{title}</ButtonText>
+    <ButtonSmall color={color}>{title}</ButtonSmall>
   </StyledButton>
 );

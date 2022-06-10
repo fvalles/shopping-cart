@@ -1,1 +1,11 @@
-export { ButtonText } from './button-text';
+export { ButtonBig } from './button-big';
+export { ButtonSmall } from './button-small';
+export { H1 } from './h1';
+export { H2 } from './h2';
+export { H3 } from './h3';
+export { ListItemBig } from './list-item-big';
+export { ListItemMedium } from './list-item-medium';
+export { ListItemSmall } from './list-item-small';
+export { Span } from './span';
+export { Subtitle } from './subtitle';
+export { Title } from './title';
