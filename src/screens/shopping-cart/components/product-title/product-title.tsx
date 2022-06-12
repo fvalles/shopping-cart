@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { getElementWidth, getJustifyContent } from '../../helpers';
-import { Div } from '../div';
-import { H3 } from '../typography';
+import { Div } from '../../../../components/div';
+import { H3 } from '../../../../components/typography';
 
 /**
  * Types

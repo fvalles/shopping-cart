@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { getElementWidth, getJustifyContent } from '../../helpers';
-import { Div } from '../div';
-import { Image } from '../image';
-import { Title, Subtitle } from '../typography';
+import { Div } from '../../../../components/div';
+import { Image } from '../../../../components/image';
+import { Title, Subtitle } from '../../../../components/typography';
 import { ProductProps } from './types';
 
 /**
