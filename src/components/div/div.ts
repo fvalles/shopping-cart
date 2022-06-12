@@ -5,6 +5,8 @@ import styled, { css } from 'styled-components';
  */
 
 interface DivProps {
+  /** Div align items property. Default is set to 'center' */
+  alignItems?: string;
   /** Div display property */
   display?: string;
   /** Div width. Default value is 100% */
@@ -18,6 +20,7 @@ interface DivProps {
  */
 
 export const Div = styled.div<DivProps>`
+  align-items: ${({ alignItems = 'center' }) => alignItems};
   ${({ display }) =>
     display &&
     css`

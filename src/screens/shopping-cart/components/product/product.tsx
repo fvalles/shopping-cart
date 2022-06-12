@@ -1,4 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
+import { Money } from '../../../../components/money';
+import { getElementWidth } from '../../helpers';
 import { ProductDetails } from '../product-details';
 import { Quantity } from '../quantity';
 
@@ -42,8 +44,6 @@ export const Product: FunctionComponent<ProductProps> = ({
     }
   };
 
-  console.log(price);
-
   return (
     <>
       <ProductDetails
@@ -52,6 +52,8 @@ export const Product: FunctionComponent<ProductProps> = ({
         productCode={productCode}
       />
       <Quantity quantity={quantity} onClick={handleQuantityButtonClick} />
+      <Money amount={price} width={getElementWidth(2)} />
+      <Money amount={price * quantity} width={getElementWidth(3)} />
     </>
   );
 };

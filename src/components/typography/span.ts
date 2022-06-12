@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { TypographyProps } from './common';
 
 export const Span = styled.span<TypographyProps>`
@@ -7,4 +7,9 @@ export const Span = styled.span<TypographyProps>`
     sans-serif;
   font-size: 16px;
   line-height: 1;
+  ${({ margin }) =>
+    margin &&
+    css`
+      margin: ${margin};
+    `}
 `;
