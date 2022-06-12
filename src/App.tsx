@@ -103,19 +103,9 @@ const App: FunctionComponent = () => (
       <Spacer size={32} />
       <ul>
         {PRODUCT_DETAILS.map(
-          ({ imageSource, name, productCode }, productIndex) =>
-            productIndex !== 0 ? (
-              <>
-                <Spacer size={32} />
-                <LiRow>
-                  <Product
-                    imageSource={imageSource}
-                    name={name}
-                    productCode={productCode}
-                  />
-                </LiRow>
-              </>
-            ) : (
+          ({ imageSource, name, productCode }, productIndex) => (
+            <>
+              {productIndex !== 0 && <Spacer size={32} />}
               <LiRow>
                 <Product
                   imageSource={imageSource}
@@ -123,7 +113,8 @@ const App: FunctionComponent = () => (
                   productCode={productCode}
                 />
               </LiRow>
-            ),
+            </>
+          ),
         )}
       </ul>
     </Section>
