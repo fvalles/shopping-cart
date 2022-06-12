@@ -1,15 +1,15 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { Button } from '../../components/button';
-import { Product } from './components/product';
+import { ProductDetails } from './components/product-details';
 import { ProductTitle } from './components/product-title';
-import { ProductDetails } from './components/product/types';
 import { Separator } from '../../components/separator';
 import { Spacer } from '../../components/spacer';
 import { H1 } from '../../components/typography';
 import capImage from '../../assets/images/products/cap.png';
 import mugImage from '../../assets/images/products/mug.png';
 import shirtImage from '../../assets/images/products/shirt.png';
+import { ProductProps as Product } from './components/product';
 
 /**
  * Constants
@@ -17,7 +17,7 @@ import shirtImage from '../../assets/images/products/shirt.png';
 
 const PRODUCT_TITLES = ['Product Details', 'Quantity', 'Price', 'Total'];
 
-const PRODUCT_DETAILS: ProductDetails[] = [
+const PRODUCTS: Product[] = [
   {
     imageSource: shirtImage,
     name: 'Shirt',
@@ -101,20 +101,18 @@ export const ShoppingCart: FunctionComponent = () => (
       </ul>
       <Spacer size={32} />
       <ul>
-        {PRODUCT_DETAILS.map(
-          ({ imageSource, name, productCode }, productIndex) => (
-            <>
-              {productIndex !== 0 && <Spacer size={32} />}
-              <LiRow>
-                <Product
-                  imageSource={imageSource}
-                  name={name}
-                  productCode={productCode}
-                />
-              </LiRow>
-            </>
-          ),
-        )}
+        {PRODUCTS.map(({ imageSource, name, productCode }, productIndex) => (
+          <>
+            {productIndex !== 0 && <Spacer size={32} />}
+            <LiRow>
+              <ProductDetails
+                imageSource={imageSource}
+                name={name}
+                productCode={productCode}
+              />
+            </LiRow>
+          </>
+        ))}
       </ul>
     </Section>
     <Aside>

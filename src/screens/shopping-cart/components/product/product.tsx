@@ -1,20 +1,20 @@
 import React, { FunctionComponent } from 'react';
-import styled from 'styled-components';
-import { getElementWidth, getJustifyContent } from '../../helpers';
-import { Div } from '../../../../components/div';
-import { Image } from '../../../../components/image';
-import { Title, Subtitle } from '../../../../components/typography';
-import { ProductProps } from './types';
+import { ProductDetails } from '../product-details';
 
 /**
- * Styled Components
+ * Types
  */
 
-const Figure = styled.figure`
-  align-items: center;
-  display: flex;
-  flex-flow: row nowrap;
-`;
+export interface ProductProps {
+  /** Product image path */
+  imageSource: string;
+  /** Product name to be displayed */
+  name: string;
+  /** Product price */
+  price: number;
+  /** Product code */
+  productCode: string;
+}
 
 /**
  * Product
@@ -25,17 +25,9 @@ export const Product: FunctionComponent<ProductProps> = ({
   name,
   productCode,
 }) => (
-  <Div
-    display="flex"
-    key={name}
-    width={getElementWidth(0)}
-    justifyContent={getJustifyContent(0)}>
-    <Figure>
-      <Image alt={name} height={72} src={imageSource} width={72} />
-      <Div>
-        <Title>{name}</Title>
-        <Subtitle>{`Product code ${productCode}`}</Subtitle>
-      </Div>
-    </Figure>
-  </Div>
+  <ProductDetails
+    imageSource={imageSource}
+    name={name}
+    productCode={productCode}
+  />
 );
