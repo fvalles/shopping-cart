@@ -4,19 +4,6 @@ import { KeyColors } from '../../core/theme/colors';
 import { ButtonSmall } from '../typography';
 
 /**
- * Styled Components
- */
-
-export const StyledButton = styled.button<StyledButtonProps>`
-  background-color: ${({ background = 'primary', theme }) =>
-    theme.Colors[background]};
-  border-radius: 4px;
-  padding-bottom: 16px;
-  padding-top: 16px;
-  width: 100%;
-`;
-
-/**
  * Types
  */
 
@@ -34,6 +21,19 @@ interface ButtonProps {
   /** Button title color */
   color?: KeyColors;
 }
+
+/**
+ * Styled Components
+ */
+
+export const StyledButton = styled.button<StyledButtonProps>`
+  background-color: ${({ background = 'primary', theme }) =>
+    theme.Colors[background]};
+  border-radius: 4px;
+  padding-bottom: 16px;
+  padding-top: 16px;
+  width: 100%;
+`;
 
 /**
  * Button

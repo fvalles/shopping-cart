@@ -3,7 +3,7 @@ import { TypographyProps } from './common';
 
 export const Title = styled.p<TypographyProps>`
   color: ${({ color = 'primary', theme }) => theme.Colors[color]};
-  font-family: ${({ theme }) => theme.Fonts.regular}, 'Avenir Next', 'Segoe UI',
+  font-family: ${({ theme }) => theme.Fonts.medium}, 'Avenir Next', 'Segoe UI',
     sans-serif;
   font-size: 16px;
   font-weight: bold;

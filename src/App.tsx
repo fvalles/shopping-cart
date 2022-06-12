@@ -5,6 +5,39 @@ import { Separator } from './components/separator';
 import { Spacer } from './components/spacer';
 import { H1 } from './components/typography';
 import { Colors } from './core/theme';
+import capImage from './assets/images/products/cap.png';
+import mugImage from './assets/images/products/mug.png';
+import shirtImage from './assets/images/products/shirt.png';
+import { ProductTitle } from './components/product-title';
+import { ProductDetails } from './components/product/types';
+import { Product } from './components/product';
+
+/**
+ * Constants
+ */
+
+const PRODUCT_TITLES = ['Product Details', 'Quantity', 'Price', 'Total'];
+
+const PRODUCT_DETAILS: ProductDetails[] = [
+  {
+    imageSource: shirtImage,
+    name: 'Shirt',
+    price: 20,
+    productCode: 'X7R2OPX',
+  },
+  {
+    imageSource: mugImage,
+    name: 'Mug',
+    price: 5,
+    productCode: 'X2G2OPZ',
+  },
+  {
+    imageSource: capImage,
+    name: 'Cap',
+    price: 10,
+    productCode: 'X3W2OPY',
+  },
+];
 
 /**
  * Styled Components
@@ -40,6 +73,11 @@ const Aside = styled.aside`
   width: 312px;
 `;
 
+const LiRow = styled.li`
+  display: flex;
+  flex-flow: row nowrap;
+`;
+
 /**
  * App
  */
@@ -50,12 +88,50 @@ const App: FunctionComponent = () => (
       <H1>Shopping cart</H1>
       <Spacer size={16} />
       <Separator />
+      <Spacer size={32} />
+      <ul>
+        <LiRow>
+          {PRODUCT_TITLES.map((productTitle, productTitleIndex) => (
+            <ProductTitle
+              index={productTitleIndex}
+              title={productTitle}
+              toUpperCase
+            />
+          ))}
+        </LiRow>
+      </ul>
+      <Spacer size={32} />
+      <ul>
+        {PRODUCT_DETAILS.map(
+          ({ imageSource, name, productCode }, productIndex) =>
+            productIndex !== 0 ? (
+              <>
+                <Spacer size={32} />
+                <LiRow>
+                  <Product
+                    imageSource={imageSource}
+                    name={name}
+                    productCode={productCode}
+                  />
+                </LiRow>
+              </>
+            ) : (
+              <LiRow>
+                <Product
+                  imageSource={imageSource}
+                  name={name}
+                  productCode={productCode}
+                />
+              </LiRow>
+            ),
+        )}
+      </ul>
     </Section>
     <Aside>
       <H1>Order Summary</H1>
       <Spacer size={16} />
       <Separator />
-      <Spacer size={16} />
+      <Spacer size={32} />
       <Button onClick={() => {}} title="Checkout" />
     </Aside>
   </Main>
