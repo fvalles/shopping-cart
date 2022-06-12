@@ -7,7 +7,6 @@ import { ProductDetails } from './components/product/types';
 import { Separator } from '../../components/separator';
 import { Spacer } from '../../components/spacer';
 import { H1 } from '../../components/typography';
-import { Colors } from '../../core/theme';
 import capImage from '../../assets/images/products/cap.png';
 import mugImage from '../../assets/images/products/mug.png';
 import shirtImage from '../../assets/images/products/shirt.png';
@@ -44,7 +43,7 @@ const PRODUCT_DETAILS: ProductDetails[] = [
  */
 
 const Main = styled.main`
-  background-color: ${Colors.white};
+  background-color: ${({ theme }) => theme.Colors.white};
   border-radius: 4px;
   display: flex;
   height: calc(100% - 64px);
@@ -65,8 +64,8 @@ const Section = styled.section`
 `;
 
 const Aside = styled.aside`
-  background-color: ${Colors.summaryBackground};
-  color: ${Colors.summaryText};
+  background-color: ${({ theme }) => theme.Colors.summaryBackground};
+  color: ${({ theme }) => theme.Colors.summaryText};
   display: flex;
   flex-flow: column wrap;
   padding: 40px 32px;
