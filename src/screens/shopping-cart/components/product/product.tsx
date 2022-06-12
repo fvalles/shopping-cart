@@ -31,7 +31,7 @@ export const Product: FunctionComponent<ProductProps> = ({
     width={getElementWidth(0)}
     justifyContent={getJustifyContent(0)}>
     <Figure>
-      <Image src={imageSource} alt={name} />
+      <Image alt={name} height={72} src={imageSource} width={72} />
       <Div>
         <Title>{name}</Title>
         <Subtitle>{`Product code ${productCode}`}</Subtitle>
