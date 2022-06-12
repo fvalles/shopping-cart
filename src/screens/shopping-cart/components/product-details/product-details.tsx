@@ -33,9 +33,8 @@ export const ProductDetails: FunctionComponent<ProductDetailsProps> = ({
 }) => (
   <Div
     display="flex"
-    key={name}
-    width={getElementWidth(0)}
-    justifyContent={getJustifyContent(0)}>
+    justifyContent={getJustifyContent(0)}
+    width={getElementWidth(0)}>
     <Figure>
       <Image alt={name} height={72} src={imageSource} width={72} />
       <Div>

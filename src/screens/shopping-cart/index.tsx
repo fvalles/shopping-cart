@@ -1,7 +1,6 @@
-import React, { FunctionComponent } from 'react';
+import React, { Fragment, FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { Button } from '../../components/button';
-import { ProductDetails } from './components/product-details';
 import { ProductTitle } from './components/product-title';
 import { Separator } from '../../components/separator';
 import { Spacer } from '../../components/spacer';
@@ -9,7 +8,7 @@ import { H1 } from '../../components/typography';
 import capImage from '../../assets/images/products/cap.png';
 import mugImage from '../../assets/images/products/mug.png';
 import shirtImage from '../../assets/images/products/shirt.png';
-import { ProductProps as Product } from './components/product';
+import { Product, ProductProps as ProductType } from './components/product';
 
 /**
  * Constants
@@ -17,7 +16,7 @@ import { ProductProps as Product } from './components/product';
 
 const PRODUCT_TITLES = ['Product Details', 'Quantity', 'Price', 'Total'];
 
-const PRODUCTS: Product[] = [
+const PRODUCTS: ProductType[] = [
   {
     imageSource: shirtImage,
     name: 'Shirt',
@@ -93,6 +92,7 @@ export const ShoppingCart: FunctionComponent = () => (
           {PRODUCT_TITLES.map((productTitle, productTitleIndex) => (
             <ProductTitle
               index={productTitleIndex}
+              key={productTitle}
               title={productTitle}
               toUpperCase
             />
@@ -101,18 +101,21 @@ export const ShoppingCart: FunctionComponent = () => (
       </ul>
       <Spacer size={32} />
       <ul>
-        {PRODUCTS.map(({ imageSource, name, productCode }, productIndex) => (
-          <>
-            {productIndex !== 0 && <Spacer size={32} />}
-            <LiRow>
-              <ProductDetails
-                imageSource={imageSource}
-                name={name}
-                productCode={productCode}
-              />
-            </LiRow>
-          </>
-        ))}
+        {PRODUCTS.map(
+          ({ imageSource, name, price, productCode }, productIndex) => (
+            <Fragment key={name}>
+              {productIndex !== 0 && <Spacer size={32} />}
+              <LiRow>
+                <Product
+                  imageSource={imageSource}
+                  name={name}
+                  price={price}
+                  productCode={productCode}
+                />
+              </LiRow>
+            </Fragment>
+          ),
+        )}
       </ul>
     </Section>
     <Aside>

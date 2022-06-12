@@ -27,7 +27,6 @@ export const ProductTitle: FunctionComponent<ProductTitleProps> = ({
 }) => (
   <Div
     display="flex"
-    key={title}
     width={getElementWidth(index)}
     justifyContent={getJustifyContent(index)}>
     <H3>{toUpperCase ? title.toUpperCase() : title}</H3>
