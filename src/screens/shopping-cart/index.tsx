@@ -4,11 +4,15 @@ import { Button } from '../../components/button';
 import { ProductTitle } from './components/product-title';
 import { Separator } from '../../components/separator';
 import { Spacer } from '../../components/spacer';
-import { H1 } from '../../components/typography';
+import { H1, H2, ListItemSmall } from '../../components/typography';
 import capImage from '../../assets/images/products/cap.png';
 import mugImage from '../../assets/images/products/mug.png';
 import shirtImage from '../../assets/images/products/shirt.png';
 import { Product, ProductProps as ProductType } from './components/product';
+import { LiRow } from '../../components/li-row';
+import { Money } from '../../components/money';
+import { TypographyType } from '../../components/money/money';
+import { Div } from '../../components/div';
 
 /**
  * Constants
@@ -71,11 +75,6 @@ const Aside = styled.aside`
   width: 312px;
 `;
 
-const LiRow = styled.li`
-  display: flex;
-  flex-flow: row nowrap;
-`;
-
 /**
  * ShoppingCart
  */
@@ -88,7 +87,7 @@ export const ShoppingCart: FunctionComponent = () => (
       <Separator />
       <Spacer size={32} />
       <ul>
-        <LiRow>
+        <LiRow flexFlow="row nowrap">
           {PRODUCT_TITLES.map((productTitle, productTitleIndex) => (
             <ProductTitle
               index={productTitleIndex}
@@ -105,7 +104,7 @@ export const ShoppingCart: FunctionComponent = () => (
           ({ imageSource, name, price, productCode }, productIndex) => (
             <Fragment key={name}>
               {productIndex !== 0 && <Spacer size={32} />}
-              <LiRow>
+              <LiRow flexFlow="row nowrap">
                 <Product
                   imageSource={imageSource}
                   name={name}
@@ -123,6 +122,58 @@ export const ShoppingCart: FunctionComponent = () => (
       <Spacer size={16} />
       <Separator />
       <Spacer size={32} />
+      <ul>
+        <LiRow justifyContent="space-between">
+          <ListItemSmall>11 items</ListItemSmall>
+          <Money
+            amount={120}
+            typographyType={TypographyType.LIST_ITEM_MEDIUM}
+          />
+        </LiRow>
+      </ul>
+      <Spacer size={32} />
+      <Separator />
+      <Spacer size={24} />
+      <Div>
+        <H2>DISCOUNTS</H2>
+        <Spacer />
+        <ul>
+          <LiRow justifyContent="space-between">
+            <ListItemSmall>2x1 Mug offer</ListItemSmall>
+            <Money
+              amount={-10}
+              typographyType={TypographyType.LIST_ITEM_SMALL}
+            />
+          </LiRow>
+          <Spacer size={20} />
+          <LiRow justifyContent="space-between">
+            <ListItemSmall>x3 Shirt offer</ListItemSmall>
+            <Money
+              amount={-3}
+              typographyType={TypographyType.LIST_ITEM_SMALL}
+            />
+          </LiRow>
+          <Spacer size={20} />
+          <LiRow justifyContent="space-between">
+            <ListItemSmall>Promo code</ListItemSmall>
+            <Money amount={0} typographyType={TypographyType.LIST_ITEM_SMALL} />
+          </LiRow>
+        </ul>
+      </Div>
+      <Spacer size={24} />
+      <Separator />
+      <Spacer size={161} />
+      <Separator />
+      <Spacer size={16} />
+      <Div>
+        <ul>
+          <LiRow justifyContent="space-between">
+            <ListItemSmall>TOTAL COST</ListItemSmall>
+            <Money amount={107} typographyType={TypographyType.LIST_ITEM_BIG} />
+          </LiRow>
+        </ul>
+      </Div>
+      <Spacer size={22} />
       <Button onClick={() => {}} title="Checkout" />
     </Aside>
   </Main>

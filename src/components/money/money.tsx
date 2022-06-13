@@ -11,6 +11,7 @@ import {
  */
 
 const MARGIN_LEFT = '0px 0px 0px 4px';
+const SMALL_MARGIN_LEFT = '0px 0px 0px 2px';
 
 /**
  * Types
@@ -43,28 +44,28 @@ export const Money: FunctionComponent<MoneyProps> = ({
 }) => {
   if (typographyType === TypographyType.LIST_ITEM_BIG) {
     return (
-      <>
-        <ListItemBig>{amount}</ListItemBig>
+      <ListItemBig fontWeight="bold">
+        {amount}
         <ListItemBig>{currency}</ListItemBig>
-      </>
+      </ListItemBig>
     );
   }
 
   if (typographyType === TypographyType.LIST_ITEM_MEDIUM) {
     return (
-      <>
-        <ListItemMedium>{amount}</ListItemMedium>
+      <ListItemMedium fontWeight="bold">
+        {amount}
         <ListItemMedium margin={MARGIN_LEFT}>{currency}</ListItemMedium>
-      </>
+      </ListItemMedium>
     );
   }
 
   if (typographyType === TypographyType.LIST_ITEM_SMALL) {
     return (
-      <>
-        <ListItemSmall>{amount}</ListItemSmall>
-        <ListItemSmall>{currency}</ListItemSmall>
-      </>
+      <ListItemSmall fontWeight="bold">
+        {amount}
+        <ListItemSmall margin={SMALL_MARGIN_LEFT}>{currency}</ListItemSmall>
+      </ListItemSmall>
     );
   }
 
