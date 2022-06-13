@@ -1,5 +1,7 @@
 import React, { FunctionComponent, useState } from 'react';
+import { Div } from '../../../../components/div';
 import { Money } from '../../../../components/money';
+import { TypographyType } from '../../../../components/money/money';
 import { getElementWidth } from '../../helpers';
 import { ProductDetails } from '../product-details';
 import { Quantity } from '../quantity';
@@ -52,8 +54,12 @@ export const Product: FunctionComponent<ProductProps> = ({
         productCode={productCode}
       />
       <Quantity quantity={quantity} onClick={handleQuantityButtonClick} />
-      <Money amount={price} width={getElementWidth(2)} />
-      <Money amount={price * quantity} width={getElementWidth(3)} />
+      <Div display="flex" width={getElementWidth(2)} justifyContent="center">
+        <Money amount={price} typographyType={TypographyType.SPAN} />
+      </Div>
+      <Div display="flex" width={getElementWidth(3)} justifyContent="center">
+        <Money amount={price * quantity} typographyType={TypographyType.SPAN} />
+      </Div>
     </>
   );
 };
