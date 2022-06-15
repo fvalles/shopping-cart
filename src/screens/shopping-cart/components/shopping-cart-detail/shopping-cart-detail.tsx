@@ -15,7 +15,10 @@ import { ButtonType, ProductCode } from '../product/types';
  */
 
 interface ShoppingCartDetailProps {
-  onQuantityButtonClick: (type: ButtonType, productCode: ProductCode) => void;
+  onProductQuantityButtonClick: (
+    type: ButtonType,
+    productCode: ProductCode,
+  ) => void;
   productsQuantity: ProductsQuantity;
 }
 
@@ -33,7 +36,7 @@ const Section = styled.section`
  */
 
 export const ShoppingCartDetail: FunctionComponent<ShoppingCartDetailProps> = ({
-  onQuantityButtonClick,
+  onProductQuantityButtonClick,
   productsQuantity,
 }) => (
   <Section>
@@ -63,7 +66,7 @@ export const ShoppingCartDetail: FunctionComponent<ShoppingCartDetailProps> = ({
               <Product
                 imageSource={imageSource}
                 name={name}
-                onQuantityButtonClick={onQuantityButtonClick}
+                onQuantityButtonClick={onProductQuantityButtonClick}
                 quantity={productsQuantity[productCode]}
                 price={price}
                 productCode={productCode}
