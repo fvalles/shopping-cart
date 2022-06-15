@@ -1,13 +1,12 @@
+import { Button } from '@components/button';
+import { Div } from '@components/div';
+import { LiRow } from '@components/li-row';
+import { Money, TypographyType } from '@components/money';
+import { Separator } from '@components/separator';
+import { Spacer } from '@components/spacer';
+import { H1, H2, ListItemSmall } from '@components/typography';
 import React, { Fragment, FunctionComponent } from 'react';
 import styled from 'styled-components';
-import { Button } from '../../../../components/button';
-import { Div } from '../../../../components/div';
-import { LiRow } from '../../../../components/li-row';
-import { Money } from '../../../../components/money';
-import { TypographyType } from '../../../../components/money/money';
-import { Separator } from '../../../../components/separator';
-import { Spacer } from '../../../../components/spacer';
-import { H1, H2, ListItemSmall } from '../../../../components/typography';
 import { DISCOUNTS } from '../../helpers';
 import { ProductsDiscounts, SummaryItems } from '../../types';
 

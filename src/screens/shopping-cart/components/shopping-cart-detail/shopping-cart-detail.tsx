@@ -1,9 +1,9 @@
+import { LiRow } from '@components/li-row';
+import { Separator } from '@components/separator';
+import { Spacer } from '@components/spacer';
+import { H1 } from '@components/typography';
 import React, { Fragment, FunctionComponent } from 'react';
 import styled from 'styled-components';
-import { LiRow } from '../../../../components/li-row';
-import { Separator } from '../../../../components/separator';
-import { Spacer } from '../../../../components/spacer';
-import { H1 } from '../../../../components/typography';
 import { PRODUCTS, PRODUCT_TITLES } from '../../helpers';
 import { ProductsQuantity } from '../../types';
 import { Product } from '../product';

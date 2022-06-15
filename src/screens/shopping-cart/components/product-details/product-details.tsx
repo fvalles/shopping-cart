@@ -1,9 +1,9 @@
+import { Div } from '@components/div';
+import { Image } from '@components/image';
+import { Subtitle, Title } from '@components/typography';
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { getElementWidth, getJustifyContent } from '../../helpers';
-import { Div } from '../../../../components/div';
-import { Image } from '../../../../components/image';
-import { Title, Subtitle } from '../../../../components/typography';
 import { ProductProps } from '../product/types';
 
 /**

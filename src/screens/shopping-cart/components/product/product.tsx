@@ -1,8 +1,7 @@
+import { Div } from '@components/div';
+import { Money, TypographyType } from '@components/money';
 import React, { FunctionComponent } from 'react';
 
-import { Div } from '../../../../components/div';
-import { Money } from '../../../../components/money';
-import { TypographyType } from '../../../../components/money/money';
 import { getElementWidth } from '../../helpers';
 import { ProductDetails } from '../product-details';
 import { Quantity } from '../quantity';
