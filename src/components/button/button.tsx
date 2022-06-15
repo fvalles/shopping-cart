@@ -12,14 +12,16 @@ interface StyledButtonProps {
 }
 
 interface ButtonProps {
-  /** Text to be displayed inside the button */
-  title: string;
-  /** Action to execute when the button is clicked */
-  onClick: () => void;
   /** Button background color */
   background?: KeyColors;
   /** Button title color */
   color?: KeyColors;
+  /** When disabled prop is true, the button is not clickable and its background color changes to grey */
+  disabled?: boolean;
+  /** Action to execute when the button is clicked */
+  onClick: () => void;
+  /** Text to be displayed inside the button */
+  title: string;
 }
 
 /**
@@ -40,12 +42,16 @@ export const StyledButton = styled.button<StyledButtonProps>`
  */
 
 export const Button: FunctionComponent<ButtonProps> = ({
-  title,
-  onClick,
   background,
   color,
+  disabled,
+  onClick,
+  title,
 }) => (
-  <StyledButton background={background} onClick={onClick}>
+  <StyledButton
+    background={disabled ? 'disabled' : background}
+    disabled={disabled}
+    onClick={onClick}>
     <ButtonSmall color={color}>{title}</ButtonSmall>
   </StyledButton>
 );

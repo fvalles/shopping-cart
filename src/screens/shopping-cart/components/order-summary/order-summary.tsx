@@ -39,7 +39,7 @@ const Aside = styled.aside`
 
 export const OrderSummary: FunctionComponent<OrderSummaryProps> = ({
   productsDiscounts,
-  summaryItems,
+  summaryItems: { totalCost, totalQuantity },
   totalPrice,
 }) => (
   <Aside>
@@ -49,9 +49,9 @@ export const OrderSummary: FunctionComponent<OrderSummaryProps> = ({
     <Spacer size={32} />
     <ul>
       <LiRow justifyContent="space-between">
-        <ListItemSmall>{summaryItems.totalQuantity} items</ListItemSmall>
+        <ListItemSmall>{totalQuantity} items</ListItemSmall>
         <Money
-          amount={summaryItems.totalCost}
+          amount={totalCost}
           typographyType={TypographyType.LIST_ITEM_MEDIUM}
         />
       </LiRow>
@@ -94,6 +94,6 @@ export const OrderSummary: FunctionComponent<OrderSummaryProps> = ({
       </ul>
     </Div>
     <Spacer size={22} />
-    <Button onClick={() => {}} title="Checkout" />
+    <Button disabled={!totalQuantity} onClick={() => {}} title="Checkout" />
   </Aside>
 );
