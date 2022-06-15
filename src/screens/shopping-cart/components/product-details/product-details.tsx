@@ -4,13 +4,14 @@ import { getElementWidth, getJustifyContent } from '../../helpers';
 import { Div } from '../../../../components/div';
 import { Image } from '../../../../components/image';
 import { Title, Subtitle } from '../../../../components/typography';
-import { ProductProps } from '../product';
+import { ProductProps } from '../product/types';
 
 /**
  * Types
  */
 
-export interface ProductDetailsProps extends Omit<ProductProps, 'price'> {}
+export interface ProductDetailsProps
+  extends Omit<ProductProps, 'price' | 'onQuantityButtonClick' | 'quantity'> {}
 
 /**
  * Styled Components

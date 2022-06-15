@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Div } from '../../../../components/div';
 import { ButtonBig } from '../../../../components/typography';
 import { getElementWidth, getJustifyContent } from '../../helpers';
-import { ButtonType } from '../product';
+import { ButtonType } from '../product/types';
 
 /**
  * Types
@@ -52,7 +52,7 @@ export const Quantity: FunctionComponent<QuantityProps> = ({
     <Button onClick={() => onClick(ButtonType.SUBTRACT)}>
       <ButtonBig>-</ButtonBig>
     </Button>
-    <Input min="0" type="number" value={quantity} />
+    <Input min="0" type="number" value={quantity} readOnly />
     <Button onClick={() => onClick(ButtonType.ADD)}>
       <ButtonBig>+</ButtonBig>
     </Button>

@@ -1,30 +1,12 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent } from 'react';
+
 import { Div } from '../../../../components/div';
 import { Money } from '../../../../components/money';
 import { TypographyType } from '../../../../components/money/money';
 import { getElementWidth } from '../../helpers';
 import { ProductDetails } from '../product-details';
 import { Quantity } from '../quantity';
-
-/**
- * Types
- */
-
-export enum ButtonType {
-  ADD = 'ADD',
-  SUBTRACT = 'SUBTRACT',
-}
-
-export interface ProductProps {
-  /** Product image path */
-  imageSource: string;
-  /** Product name to be displayed */
-  name: string;
-  /** Product price */
-  price: number;
-  /** Product code */
-  productCode: string;
-}
+import { ButtonType, ProductProps } from './types';
 
 /**
  * Product
@@ -33,17 +15,13 @@ export interface ProductProps {
 export const Product: FunctionComponent<ProductProps> = ({
   imageSource,
   name,
+  onQuantityButtonClick,
+  quantity,
   price,
   productCode,
 }) => {
-  const [quantity, setQuantity] = useState<number>(0);
-
   const handleQuantityButtonClick = (type: ButtonType): void => {
-    if (type === ButtonType.ADD) {
-      setQuantity(quantity + 1);
-    } else if (quantity !== 0) {
-      setQuantity(quantity - 1);
-    }
+    onQuantityButtonClick(type, productCode);
   };
 
   return (
