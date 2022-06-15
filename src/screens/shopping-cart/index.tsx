@@ -1,7 +1,6 @@
 import React, { Fragment, FunctionComponent, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Button } from '../../components/button';
-import { ProductTitle } from './components/product-title';
 import { Separator } from '../../components/separator';
 import { Spacer } from '../../components/spacer';
 import { H1, H2, ListItemSmall } from '../../components/typography';
@@ -10,10 +9,10 @@ import { Money } from '../../components/money';
 import { TypographyType } from '../../components/money/money';
 import { Div } from '../../components/div';
 import { ButtonType, ProductCode } from './components/product/types';
-import { Product } from './components/product';
 import { ProductsDiscounts, ProductsQuantity, SummaryItems } from './types';
 import { Checkout } from './checkout';
-import { DISCOUNTS, PRODUCTS, PRODUCT_TITLES } from './helpers';
+import { DISCOUNTS } from './helpers';
+import { ShoppingCartDetail } from './components/shopping-cart-detail';
 
 /**
  * Styled Components
@@ -33,11 +32,6 @@ const Main = styled.main`
   top: 50%;
   transform: translate(-50%, -50%);
   width: calc(100% - 64px);
-`;
-
-const Section = styled.section`
-  flex: 1;
-  padding: 40px 32px 40px 56px;
 `;
 
 const Aside = styled.aside`
@@ -113,44 +107,10 @@ export const ShoppingCart: FunctionComponent = () => {
 
   return (
     <Main>
-      <Section>
-        <H1>Shopping cart</H1>
-        <Spacer size={16} />
-        <Separator />
-        <Spacer size={32} />
-        <ul>
-          <LiRow flexFlow="row nowrap">
-            {PRODUCT_TITLES.map((productTitle, productTitleIndex) => (
-              <ProductTitle
-                index={productTitleIndex}
-                key={productTitle}
-                title={productTitle}
-                toUpperCase
-              />
-            ))}
-          </LiRow>
-        </ul>
-        <Spacer size={32} />
-        <ul>
-          {PRODUCTS.map(
-            ({ imageSource, name, price, productCode }, productIndex) => (
-              <Fragment key={name}>
-                {productIndex !== 0 && <Spacer size={32} />}
-                <LiRow flexFlow="row nowrap">
-                  <Product
-                    imageSource={imageSource}
-                    name={name}
-                    onQuantityButtonClick={handleQuantityButtonClick}
-                    quantity={productsQuantity[productCode]}
-                    price={price}
-                    productCode={productCode}
-                  />
-                </LiRow>
-              </Fragment>
-            ),
-          )}
-        </ul>
-      </Section>
+      <ShoppingCartDetail
+        onQuantityButtonClick={handleQuantityButtonClick}
+        productsQuantity={productsQuantity}
+      />
       <Aside>
         <H1>Order Summary</H1>
         <Spacer size={16} />
