@@ -46,7 +46,7 @@ export const Money: FunctionComponent<MoneyProps> = ({
     return (
       <ListItemBig fontWeight="bold">
         {amount}
-        <ListItemBig>{currency}</ListItemBig>
+        <ListItemBig fontWeight="bold">{currency}</ListItemBig>
       </ListItemBig>
     );
   }
@@ -55,7 +55,9 @@ export const Money: FunctionComponent<MoneyProps> = ({
     return (
       <ListItemMedium fontWeight="bold">
         {amount}
-        <ListItemMedium margin={MARGIN_LEFT}>{currency}</ListItemMedium>
+        <ListItemMedium fontWeight="bold" margin={MARGIN_LEFT}>
+          {currency}
+        </ListItemMedium>
       </ListItemMedium>
     );
   }
@@ -64,7 +66,9 @@ export const Money: FunctionComponent<MoneyProps> = ({
     return (
       <ListItemSmall fontWeight="bold">
         {amount}
-        <ListItemSmall margin={SMALL_MARGIN_LEFT}>{currency}</ListItemSmall>
+        <ListItemSmall fontWeight="bold" margin={SMALL_MARGIN_LEFT}>
+          {currency}
+        </ListItemSmall>
       </ListItemSmall>
     );
   }

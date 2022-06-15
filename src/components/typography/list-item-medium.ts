@@ -1,20 +1,8 @@
-import styled, { css } from 'styled-components';
-import { TypographyProps } from './common';
+import styled from 'styled-components';
+import { listItemBaseStyles, TypographyProps } from './common';
 
 export const ListItemMedium = styled.span<TypographyProps>`
-  color: ${({ color = 'summaryText', theme }) => theme.Colors[color]};
-  font-family: ${({ theme }) => theme.Fonts.light}, 'Avenir Next', 'Segoe UI',
-    sans-serif;
+  ${listItemBaseStyles};
   font-size: 16px;
-  ${({ fontWeight }) =>
-    fontWeight &&
-    css`
-      font-weight: ${fontWeight};
-    `}
   line-height: 17px;
-  ${({ margin }) =>
-    margin &&
-    css`
-      margin: ${margin};
-    `}
 `;
