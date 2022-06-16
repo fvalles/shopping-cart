@@ -28,7 +28,8 @@ const Figure = styled.figure`
  */
 
 export const ProductDetails: FunctionComponent<ProductDetailsProps> = ({
-  imageSource,
+  imageSourcePng,
+  imageSourceWebp,
   name,
   productCode,
 }) => (
@@ -37,7 +38,12 @@ export const ProductDetails: FunctionComponent<ProductDetailsProps> = ({
     justifyContent={getJustifyContent(0)}
     width={getElementWidth(0)}>
     <Figure>
-      <Image alt={name} height={72} src={imageSource} width={72} />
+      {/** Wrap Image component with <picture> html tag to show WebP images if browser supports them.
+       * This is better for SEO/SEM and to use lighter image files */}
+      <picture>
+        <source srcSet={imageSourceWebp} type="image/webp" />
+        <Image alt={name} height={72} src={imageSourcePng} width={72} />
+      </picture>
       <Div>
         <Title>{name}</Title>
         <Subtitle>{`Product code ${productCode}`}</Subtitle>

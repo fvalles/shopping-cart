@@ -1,8 +1,11 @@
 import { ProductCode } from '../components/product/types';
 import { Discounts, ProductType } from '../types';
-import capImage from '../../../assets/images/products/cap.png';
-import mugImage from '../../../assets/images/products/mug.png';
-import shirtImage from '../../../assets/images/products/shirt.png';
+import capImagePng from '../../../assets/images/products/cap.png';
+import mugImagePng from '../../../assets/images/products/mug.png';
+import shirtImagePng from '../../../assets/images/products/shirt.png';
+import capImageWebp from '../../../assets/images/products/cap.webp';
+import mugImageWebp from '../../../assets/images/products/mug.webp';
+import shirtImageWebp from '../../../assets/images/products/shirt.webp';
 
 export const DISCOUNTS: Discounts[] = [
   {
@@ -20,19 +23,22 @@ export const DISCOUNTS: Discounts[] = [
 
 export const PRODUCTS: ProductType[] = [
   {
-    imageSource: capImage,
+    imageSourcePng: capImagePng,
+    imageSourceWebp: capImageWebp,
     name: 'Cap',
     price: 10,
     productCode: ProductCode.CAP,
   },
   {
-    imageSource: mugImage,
+    imageSourcePng: mugImagePng,
+    imageSourceWebp: mugImageWebp,
     name: 'Mug',
     price: 5,
     productCode: ProductCode.MUG,
   },
   {
-    imageSource: shirtImage,
+    imageSourcePng: shirtImagePng,
+    imageSourceWebp: shirtImageWebp,
     name: 'Shirt',
     price: 20,
     productCode: ProductCode.SHIRT,

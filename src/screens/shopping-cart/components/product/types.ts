@@ -10,8 +10,10 @@ export enum ProductCode {
 }
 
 export interface ProductProps {
-  /** Product image path */
-  imageSource: string;
+  /** Product Png image path */
+  imageSourcePng: string;
+  /** Product WebP image path */
+  imageSourceWebp: string;
   /** Product name to be displayed */
   name: string;
   /**  */

@@ -59,12 +59,16 @@ export const ShoppingCartDetail: FunctionComponent<ShoppingCartDetailProps> = ({
     <Spacer size={32} />
     <ul>
       {PRODUCTS.map(
-        ({ imageSource, name, price, productCode }, productIndex) => (
+        (
+          { imageSourcePng, imageSourceWebp, name, price, productCode },
+          productIndex,
+        ) => (
           <Fragment key={name}>
             {productIndex !== 0 && <Spacer size={32} />}
             <LiRow flexFlow="row nowrap">
               <Product
-                imageSource={imageSource}
+                imageSourcePng={imageSourcePng}
+                imageSourceWebp={imageSourceWebp}
                 name={name}
                 onQuantityButtonClick={onProductQuantityButtonClick}
                 quantity={productsQuantity[productCode]}

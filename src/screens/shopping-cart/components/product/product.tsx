@@ -12,7 +12,8 @@ import { ButtonType, ProductProps } from './types';
  */
 
 export const Product: FunctionComponent<ProductProps> = ({
-  imageSource,
+  imageSourcePng,
+  imageSourceWebp,
   name,
   onQuantityButtonClick,
   quantity,
@@ -26,7 +27,8 @@ export const Product: FunctionComponent<ProductProps> = ({
   return (
     <>
       <ProductDetails
-        imageSource={imageSource}
+        imageSourcePng={imageSourcePng}
+        imageSourceWebp={imageSourceWebp}
         name={name}
         productCode={productCode}
       />
