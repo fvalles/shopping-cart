@@ -1,13 +1,13 @@
-Basic div component with default width='100%' and align-items='center':
+Basic div component with default width='100%':
 
 ```jsx
 <Div />
 ```
 
-Div component with custom width and align-items properties set:
+Div component with custom display, width and align-items properties set:
 
 ```jsx
-<Div alignItems="flex-start" width="330px" />
+<Div alignItems="flex-start" display="flex" width="330px" />
 ```
 
 Div component with default width='100%', align-items='center' and custom display and justify-content properties set:

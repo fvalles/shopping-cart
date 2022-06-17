@@ -46,6 +46,7 @@ export const Quantity: FunctionComponent<QuantityProps> = ({
   quantity,
 }) => (
   <Div
+    alignItems="center"
     display="flex"
     width={getElementWidth(1)}
     justifyContent={getJustifyContent(1)}>

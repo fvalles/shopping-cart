@@ -26,6 +26,7 @@ export const ProductTitle: FunctionComponent<ProductTitleProps> = ({
   toUpperCase,
 }) => (
   <Div
+    alignItems="center"
     display="flex"
     width={getElementWidth(index)}
     justifyContent={getJustifyContent(index)}>

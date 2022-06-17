@@ -22,7 +22,11 @@ interface DivProps {
  */
 
 export const Div = styled.div<DivProps>`
-  align-items: ${({ alignItems = 'center' }) => alignItems};
+  ${({ alignItems }) =>
+    alignItems &&
+    css`
+      align-items: ${alignItems};
+    `}
   ${({ display }) =>
     display &&
     css`

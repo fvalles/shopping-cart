@@ -115,7 +115,11 @@ export const ModalContent: FunctionComponent<ModalContentProps> = ({
       />
       <ProductInfoWrapper>
         <Spacer size={33} />
-        <Div display="flex" justifyContent="flex-end" margin="0px 33px 0px 0px">
+        <Div
+          alignItems="center"
+          display="flex"
+          justifyContent="flex-end"
+          margin="0px 33px 0px 0px">
           <CloseIconButton onClick={onRequestClose}>
             <img alt="cancel icon" src={cancelIcon} />
           </CloseIconButton>

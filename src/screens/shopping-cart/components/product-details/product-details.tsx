@@ -44,6 +44,7 @@ export const ProductDetails: FunctionComponent<ProductDetailsProps> = ({
   productCode,
 }) => (
   <Div
+    alignItems="center"
     display="flex"
     justifyContent={getJustifyContent(0)}
     width={getElementWidth(0)}>

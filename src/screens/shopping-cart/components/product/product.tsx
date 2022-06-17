@@ -82,10 +82,18 @@ export const Product: FunctionComponent<ProductProps> = ({
         productCode={productCode}
       />
       <Quantity quantity={quantity} onClick={handleQuantityButtonClick} />
-      <Div display="flex" width={getElementWidth(2)} justifyContent="center">
+      <Div
+        alignItems="center"
+        display="flex"
+        width={getElementWidth(2)}
+        justifyContent="center">
         <Money amount={price} />
       </Div>
-      <Div display="flex" width={getElementWidth(3)} justifyContent="center">
+      <Div
+        alignItems="center"
+        display="flex"
+        width={getElementWidth(3)}
+        justifyContent="center">
         <Money amount={price * quantity} />
       </Div>
     </>
