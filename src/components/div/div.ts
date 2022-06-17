@@ -9,6 +9,8 @@ interface DivProps {
   alignItems?: string;
   /** Div display property */
   display?: string;
+  /** Div margin */
+  margin?: string;
   /** Div width. Default value is 100% */
   width?: string;
   /** Div justify-content property */
@@ -25,6 +27,11 @@ export const Div = styled.div<DivProps>`
     display &&
     css`
       display: ${display};
+    `}
+  ${({ margin }) =>
+    margin &&
+    css`
+      margin: ${margin};
     `}
   ${({ justifyContent }) =>
     justifyContent &&

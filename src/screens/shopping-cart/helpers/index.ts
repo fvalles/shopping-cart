@@ -1,11 +1,17 @@
 import { ProductCode } from '../components/product/types';
 import { Discounts, ProductType } from '../types';
 import capImagePng from '../../../assets/images/products/cap.png';
-import mugImagePng from '../../../assets/images/products/mug.png';
-import shirtImagePng from '../../../assets/images/products/shirt.png';
 import capImageWebp from '../../../assets/images/products/cap.webp';
+import capModalImagePng from '../../../assets/images/products/cap-for-modal.png';
+import capModalImageWebp from '../../../assets/images/products/cap-for-modal.webp';
+import mugImagePng from '../../../assets/images/products/mug.png';
 import mugImageWebp from '../../../assets/images/products/mug.webp';
+import mugModalImagePng from '../../../assets/images/products/mug-for-modal.png';
+import mugModalImageWebp from '../../../assets/images/products/mug-for-modal.webp';
+import shirtImagePng from '../../../assets/images/products/shirt.png';
 import shirtImageWebp from '../../../assets/images/products/shirt.webp';
+import shirtModalImagePng from '../../../assets/images/products/shirt-for-modal.png';
+import shirtModalImageWebp from '../../../assets/images/products/shirt-for-modal.webp';
 
 export const DISCOUNTS: Discounts[] = [
   {
@@ -25,6 +31,8 @@ export const PRODUCTS: ProductType[] = [
   {
     imageSourcePng: capImagePng,
     imageSourceWebp: capImageWebp,
+    modalImageSourcePng: capModalImagePng,
+    modalImageSourceWebp: capModalImageWebp,
     name: 'Cap',
     price: 10,
     productCode: ProductCode.CAP,
@@ -32,6 +40,8 @@ export const PRODUCTS: ProductType[] = [
   {
     imageSourcePng: mugImagePng,
     imageSourceWebp: mugImageWebp,
+    modalImageSourcePng: mugModalImagePng,
+    modalImageSourceWebp: mugModalImageWebp,
     name: 'Mug',
     price: 5,
     productCode: ProductCode.MUG,
@@ -39,6 +49,8 @@ export const PRODUCTS: ProductType[] = [
   {
     imageSourcePng: shirtImagePng,
     imageSourceWebp: shirtImageWebp,
+    modalImageSourcePng: shirtModalImagePng,
+    modalImageSourceWebp: shirtModalImageWebp,
     name: 'Shirt',
     price: 20,
     productCode: ProductCode.SHIRT,

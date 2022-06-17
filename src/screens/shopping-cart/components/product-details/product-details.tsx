@@ -11,11 +11,20 @@ import { ProductProps } from '../product/types';
  */
 
 export interface ProductDetailsProps
-  extends Omit<ProductProps, 'price' | 'onQuantityButtonClick' | 'quantity'> {}
+  extends Pick<
+    ProductProps,
+    'imageSourcePng' | 'imageSourceWebp' | 'name' | 'productCode'
+  > {
+  onProductDetailsClick: () => void;
+}
 
 /**
  * Styled Components
  */
+
+const Button = styled.button`
+  background-color: ${({ theme }) => theme.Colors.white};
+`;
 
 const Figure = styled.figure`
   align-items: center;
@@ -31,6 +40,7 @@ export const ProductDetails: FunctionComponent<ProductDetailsProps> = ({
   imageSourcePng,
   imageSourceWebp,
   name,
+  onProductDetailsClick,
   productCode,
 }) => (
   <Div
@@ -38,12 +48,14 @@ export const ProductDetails: FunctionComponent<ProductDetailsProps> = ({
     justifyContent={getJustifyContent(0)}
     width={getElementWidth(0)}>
     <Figure>
-      {/** Wrap Image component with <picture> html tag to show WebP images if browser supports them.
-       * This is better for SEO/SEM and to use lighter image files */}
-      <picture>
-        <source srcSet={imageSourceWebp} type="image/webp" />
-        <Image alt={name} height={72} src={imageSourcePng} width={72} />
-      </picture>
+      <Button onClick={onProductDetailsClick} type="button">
+        {/** I wrap Image component with <picture> html tag to show WebP images if browser supports them.
+         * This is better for SEO/SEM and to use lighter image files */}
+        <picture>
+          <source srcSet={imageSourceWebp} type="image/webp" />
+          <Image alt={name} height={72} src={imageSourcePng} width={72} />
+        </picture>
+      </Button>
       <Div>
         <Title>{name}</Title>
         <Subtitle>{`Product code ${productCode}`}</Subtitle>

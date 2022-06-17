@@ -5,6 +5,7 @@ import styled from 'styled-components';
  */
 
 interface SpacerProps {
+  /** Spacer height. Default value is 16px */
   size?: number;
 }
 

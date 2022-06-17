@@ -30,7 +30,7 @@ interface MoneyProps {
   /** Currency being used */
   currency?: string;
   /** Typography type used to render Money component text */
-  typographyType: TypographyType;
+  typographyType?: TypographyType;
 }
 
 /**

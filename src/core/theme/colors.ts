@@ -2,7 +2,9 @@ import { palette } from './palette';
 
 export const Colors = {
   // color names are based on https://colornamer.netlify.app/
+  body: palette.kon,
   disabled: palette.stormGrey,
+  majesticPurple: palette.majesticPurple,
   primary: palette.venetianNights,
   productImageBorder: palette.sharpGrey,
   productPrice: palette.black,

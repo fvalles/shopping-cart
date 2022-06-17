@@ -60,7 +60,15 @@ export const ShoppingCartDetail: FunctionComponent<ShoppingCartDetailProps> = ({
     <ul>
       {PRODUCTS.map(
         (
-          { imageSourcePng, imageSourceWebp, name, price, productCode },
+          {
+            imageSourcePng,
+            imageSourceWebp,
+            modalImageSourcePng,
+            modalImageSourceWebp,
+            name,
+            price,
+            productCode,
+          },
           productIndex,
         ) => (
           <Fragment key={name}>
@@ -69,6 +77,8 @@ export const ShoppingCartDetail: FunctionComponent<ShoppingCartDetailProps> = ({
               <Product
                 imageSourcePng={imageSourcePng}
                 imageSourceWebp={imageSourceWebp}
+                modalImageSourcePng={modalImageSourcePng}
+                modalImageSourceWebp={modalImageSourceWebp}
                 name={name}
                 onQuantityButtonClick={onProductQuantityButtonClick}
                 quantity={productsQuantity[productCode]}

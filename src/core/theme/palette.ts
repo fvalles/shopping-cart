@@ -5,6 +5,8 @@ export const palette = {
   blackMarketLight: '#21224029',
   bleachedSilk: '#F3F3F3',
   faintFern: '#DBDBE0',
+  kon: '#1A1A38',
+  majesticPurple: '#62628A',
   mischka: '#A6A7B3',
   sharpGrey: '#CACAD1',
   stormGrey: '#717285',

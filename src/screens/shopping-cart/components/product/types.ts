@@ -14,9 +14,13 @@ export interface ProductProps {
   imageSourcePng: string;
   /** Product WebP image path */
   imageSourceWebp: string;
+  /** Product Png image path for modal */
+  modalImageSourcePng: string;
+  /** Product WebP image path for modal */
+  modalImageSourceWebp: string;
   /** Product name to be displayed */
   name: string;
-  /**  */
+  /** Function that will add or remove one product element from the shopping cart when the quantity button is clicked */
   onQuantityButtonClick: (type: ButtonType, productCode: ProductCode) => void;
   /** Product quantity */
   quantity: number;
