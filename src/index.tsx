@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import SnackbarProvider from 'react-simple-snackbar';
 import App from './App';
 import { GlobalStyle } from './core/theme';
 import { ThemeProvider } from './core/theme/theme-provider';
@@ -12,7 +13,9 @@ root.render(
   <ThemeProvider>
     <React.StrictMode>
       <GlobalStyle />
-      <App />
+      <SnackbarProvider>
+        <App />
+      </SnackbarProvider>
     </React.StrictMode>
   </ThemeProvider>,
 );

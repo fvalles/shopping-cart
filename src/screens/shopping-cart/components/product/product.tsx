@@ -1,12 +1,24 @@
 import { Div } from '@components/div';
 import { Modal } from '@components/modal';
 import { Money } from '@components/money';
-import React, { FunctionComponent, useState } from 'react';
+import { Colors } from '@core/theme';
+import React, { FunctionComponent, useEffect, useState } from 'react';
+import { useSnackbar } from 'react-simple-snackbar';
 import { getElementWidth } from '../../helpers';
 import { ModalContent } from '../modal-content';
 import { ProductDetails } from '../product-details';
 import { Quantity } from '../quantity';
 import { ButtonType, ProductProps } from './types';
+
+/**
+ * Constants
+ */
+
+const SNACKBAR_OPTIONS = {
+  style: {
+    backgroundColor: Colors.majesticPurple,
+  },
+};
 
 /**
  * Product
@@ -24,6 +36,7 @@ export const Product: FunctionComponent<ProductProps> = ({
   productCode,
 }) => {
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
+  const [openSnackbar, closeSnackbar] = useSnackbar(SNACKBAR_OPTIONS);
 
   const handleQuantityButtonClick = (type: ButtonType): void => {
     onQuantityButtonClick(type, productCode);
@@ -37,6 +50,16 @@ export const Product: FunctionComponent<ProductProps> = ({
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      closeSnackbar();
+    }, 4000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [openSnackbar]);
+
   return (
     <>
       <Modal isOpen={modalIsOpen} label={`${name} product details`}>
@@ -46,6 +69,7 @@ export const Product: FunctionComponent<ProductProps> = ({
           name={name}
           onQuantityButtonClick={handleQuantityButtonClick}
           onRequestClose={closeProductDetailsModal}
+          openSnackbar={openSnackbar}
           price={price}
           productCode={productCode}
         />

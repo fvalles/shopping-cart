@@ -28,6 +28,8 @@ interface ModalContentProps
   onRequestClose: () => void;
   /** Function that will add one product element to the shopping cart when the modal button is clicked */
   onQuantityButtonClick: (type: ButtonType) => void;
+  /** Function that opens the snackbar and tells the user that a product was added to the cart */
+  openSnackbar: (message: string) => void;
 }
 
 interface ModalImageProps
@@ -98,6 +100,7 @@ export const ModalContent: FunctionComponent<ModalContentProps> = ({
   name,
   onQuantityButtonClick,
   onRequestClose,
+  openSnackbar,
   price,
   productCode,
 }) => {
@@ -140,6 +143,7 @@ export const ModalContent: FunctionComponent<ModalContentProps> = ({
           onClick={() => {
             onQuantityButtonClick(ButtonType.ADD);
             onRequestClose();
+            openSnackbar(`One ${name} product was added to the cart!`);
           }}
           title="Add to cart"
         />
