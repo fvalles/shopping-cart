@@ -14,6 +14,8 @@ import { ButtonType, ProductProps } from './types';
  * Constants
  */
 
+const SNACKBAR_DURATION = 4000;
+
 const SNACKBAR_OPTIONS = {
   style: {
     backgroundColor: Colors.majesticPurple,
@@ -51,12 +53,12 @@ export const Product: FunctionComponent<ProductProps> = ({
   };
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
+    const snackbarTimeout = setTimeout(() => {
       closeSnackbar();
-    }, 4000);
+    }, SNACKBAR_DURATION);
 
     return () => {
-      clearTimeout(timeout);
+      clearTimeout(snackbarTimeout);
     };
   }, [openSnackbar]);
 
