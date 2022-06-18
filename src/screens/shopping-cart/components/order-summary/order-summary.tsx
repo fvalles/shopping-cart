@@ -126,7 +126,9 @@ export const OrderSummary: FunctionComponent<OrderSummaryProps> = ({
         disabled={!totalQuantity}
         onClick={() =>
           openSnackbar(
-            `Your ${totalQuantity} selected items with a total cost of ${totalPrice}${CURRENCY} are ready to be purchased!`,
+            totalQuantity > 1
+              ? `Your ${totalQuantity} selected items with a total cost of ${totalPrice}${CURRENCY} are ready to be purchased!`
+              : `Your ${totalQuantity} selected item with a total cost of ${totalPrice}${CURRENCY} is ready to be purchased!`,
           )
         }
         title="Checkout"
