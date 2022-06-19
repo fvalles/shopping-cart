@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`image component should render with custom css properties 1`] = `
+.c0 {
+  border: 1px dashed;
+  border-color: #7350FF;
+  border-radius: 8;
+  height: 72;
+  margin: 20px;
+  width: 72;
+}
+
+<img
+  alt="some image"
+  className="c0"
+  height={72}
+  src="imageSrc"
+  width={72}
+/>
+`;
+
+exports[`image component should render with default css properties 1`] = `
+.c0 {
+  border: 1px solid;
+  border-color: #CACAD1;
+  border-radius: 4;
+  height: 72;
+  margin: 0px 16px 0px 0px;
+  width: 72;
+}
+
+<img
+  alt="some image"
+  className="c0"
+  height={72}
+  src="imageSrc"
+  width={72}
+/>
+`;

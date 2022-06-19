@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`money component should render amount and currency inside span component 1`] = `
+Array [
+  .c0 {
+  color: #000000;
+  font-family: Avenir Regular,'Avenir Next','Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1;
+}
+
+<span
+    className="c0"
+  >
+    200
+  </span>,
+  .c0 {
+  color: #000000;
+  font-family: Avenir Regular,'Avenir Next','Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  margin: 0px 0px 0px 4px;
+}
+
+<span
+    className="c0"
+  >
+    €
+  </span>,
+]
+`;

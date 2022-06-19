@@ -32,15 +32,15 @@ export const Div = styled.div<DivProps>`
     css`
       display: ${display};
     `}
-  ${({ margin }) =>
-    margin &&
-    css`
-      margin: ${margin};
-    `}
   ${({ justifyContent }) =>
     justifyContent &&
     css`
       justify-content: ${justifyContent};
+    `}
+  ${({ margin }) =>
+    margin &&
+    css`
+      margin: ${margin};
     `}
   width: ${({ width = '100%' }) => width};
 `;

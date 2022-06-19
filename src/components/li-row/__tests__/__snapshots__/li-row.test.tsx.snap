@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`li row component should render with custom justify-content and flex-flow css properties 1`] = `
+.c1 {
+  color: #212240;
+  font-family: Avenir Medium,'Avenir Next','Segoe UI', sans-serif;
+  font-size: 18px;
+  -webkit-letter-spacing: -0.18px;
+  -moz-letter-spacing: -0.18px;
+  -ms-letter-spacing: -0.18px;
+  letter-spacing: -0.18px;
+  line-height: 24px;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-flow: row nowrap;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+}
+
+<li
+  className="c0"
+>
+  <h1
+    className="c1"
+  >
+    Some text
+  </h1>
+  <h1
+    className="c1"
+  >
+    Some other text
+  </h1>
+</li>
+`;
+
+exports[`li row component should render with default css properties 1`] = `
+.c1 {
+  color: #212240;
+  font-family: Avenir Medium,'Avenir Next','Segoe UI', sans-serif;
+  font-size: 18px;
+  -webkit-letter-spacing: -0.18px;
+  -moz-letter-spacing: -0.18px;
+  -ms-letter-spacing: -0.18px;
+  letter-spacing: -0.18px;
+  line-height: 24px;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+<li
+  className="c0"
+>
+  <h1
+    className="c1"
+  >
+    Some text
+  </h1>
+  <h1
+    className="c1"
+  >
+    Some other text
+  </h1>
+</li>
+`;

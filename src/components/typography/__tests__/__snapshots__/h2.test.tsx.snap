@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`h2 component should render with custom primary color 1`] = `
+.c0 {
+  color: #7350FF;
+  font-family: Avenir Regular,'Avenir Next','Segoe UI', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
+  letter-spacing: 0px;
+  line-height: 16px;
+}
+
+<h2
+  className="c0"
+  color="primary"
+>
+  Lorem ipsum
+</h2>
+`;
+
+exports[`h2 component should render with default css properties 1`] = `
+.c0 {
+  color: #717285;
+  font-family: Avenir Regular,'Avenir Next','Segoe UI', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
+  letter-spacing: 0px;
+  line-height: 16px;
+}
+
+<h2
+  className="c0"
+>
+  Lorem ipsum
+</h2>
+`;

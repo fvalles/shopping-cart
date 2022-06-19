@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`span component should render with custom white color and 20px margin 1`] = `
+.c0 {
+  color: #FFFFFF;
+  font-family: Avenir Regular,'Avenir Next','Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  margin: 20px;
+}
+
+<span
+  className="c0"
+  color="white"
+>
+  Lorem ipsum
+</span>
+`;
+
+exports[`span component should render with default css properties 1`] = `
+.c0 {
+  color: #000000;
+  font-family: Avenir Regular,'Avenir Next','Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1;
+}
+
+<span
+  className="c0"
+>
+  Lorem ipsum
+</span>
+`;

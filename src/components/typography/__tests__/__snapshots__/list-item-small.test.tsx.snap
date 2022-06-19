@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`list item small component should render with custom white color, 16px margin and font-weight bold 1`] = `
+.c0 {
+  color: #FFFFFF;
+  font-family: Avenir Light,'Avenir Next','Segoe UI', sans-serif;
+  font-weight: bold;
+  margin: 16px;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+<span
+  className="c0"
+  color="white"
+  fontWeight="bold"
+>
+  Lorem ipsum
+</span>
+`;
+
+exports[`list item small component should render with default css properties 1`] = `
+.c0 {
+  color: #212240;
+  font-family: Avenir Light,'Avenir Next','Segoe UI', sans-serif;
+  font-weight: normal;
+  margin: 0;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+<span
+  className="c0"
+>
+  Lorem ipsum
+</span>
+`;

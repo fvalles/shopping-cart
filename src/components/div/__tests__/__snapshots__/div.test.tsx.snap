@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`div component should render with custom css properties 1`] = `
+.c1 {
+  color: #212240;
+  font-family: Avenir Medium,'Avenir Next','Segoe UI', sans-serif;
+  font-size: 18px;
+  -webkit-letter-spacing: -0.18px;
+  -moz-letter-spacing: -0.18px;
+  -ms-letter-spacing: -0.18px;
+  letter-spacing: -0.18px;
+  line-height: 24px;
+}
+
+.c0 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 16px;
+  width: 100%;
+}
+
+<div
+  className="c0"
+  display="flex"
+>
+  <h1
+    className="c1"
+  >
+    Some text
+  </h1>
+</div>
+`;
+
+exports[`div component should render with default css properties 1`] = `
+.c1 {
+  color: #212240;
+  font-family: Avenir Medium,'Avenir Next','Segoe UI', sans-serif;
+  font-size: 18px;
+  -webkit-letter-spacing: -0.18px;
+  -moz-letter-spacing: -0.18px;
+  -ms-letter-spacing: -0.18px;
+  letter-spacing: -0.18px;
+  line-height: 24px;
+}
+
+.c0 {
+  width: 100%;
+}
+
+<div
+  className="c0"
+>
+  <h1
+    className="c1"
+  >
+    Some text
+  </h1>
+</div>
+`;

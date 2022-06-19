@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`modal component should not render if isOpen property is false 1`] = `null`;
+
+exports[`modal component should render if isOpen property is true 1`] = `
+.c0 {
+  color: #212240;
+  font-family: Avenir Medium,'Avenir Next','Segoe UI', sans-serif;
+  font-size: 18px;
+  -webkit-letter-spacing: -0.18px;
+  -moz-letter-spacing: -0.18px;
+  -ms-letter-spacing: -0.18px;
+  letter-spacing: -0.18px;
+  line-height: 24px;
+}
+
+<section>
+  <div
+    className="ReactModal__Overlay"
+    onClick={[Function]}
+    onMouseDown={[Function]}
+    style={
+      Object {
+        "backgroundColor": "rgba(255, 255, 255, 0.75)",
+        "bottom": 0,
+        "left": 0,
+        "position": "fixed",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <div
+      aria-label="some label"
+      aria-modal={true}
+      className="ReactModal__Content"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      role="dialog"
+      style={
+        Object {
+          "WebkitOverflowScrolling": "touch",
+          "background": "#fff",
+          "border": "1px solid #ccc",
+          "borderRadius": 4,
+          "bottom": "40px",
+          "display": "flex",
+          "height": "calc(100% - 64px)",
+          "left": "50%",
+          "maxHeight": 648,
+          "maxWidth": 1088,
+          "outline": "none",
+          "overflow": "auto",
+          "padding": 0,
+          "position": "absolute",
+          "right": "40px",
+          "top": "50%",
+          "transform": "translate(-50%, -50%)",
+          "width": "calc(100% - 64px)",
+        }
+      }
+      tabIndex="-1"
+    >
+      <h1
+        className="c0"
+      >
+        Lorem ipsum
+      </h1>
+    </div>
+  </div>
+</section>
+`;
