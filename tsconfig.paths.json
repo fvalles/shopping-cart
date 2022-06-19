@@ -4,7 +4,8 @@
     /** Path Mapping */
     "paths": {
       "@components/*": ["./components/*"],
-      "@core/*": ["./core/*"]
+      "@core/*": ["./core/*"],
+      "@screens/*": ["./screens/*"]
     }
   }
 }
