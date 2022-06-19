@@ -1,5 +1,5 @@
-import { ListItemMedium } from '@components/typography';
 import React, { FunctionComponent } from 'react';
+import { ListItemMedium } from '@components/typography';
 import styled from 'styled-components';
 import { Div } from '@components/div';
 import { Spacer } from '@components/spacer';

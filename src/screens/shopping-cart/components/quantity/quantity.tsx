@@ -1,6 +1,6 @@
+import React, { FunctionComponent } from 'react';
 import { Div } from '@components/div';
 import { ButtonBig } from '@components/typography';
-import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { getElementWidth, getJustifyContent } from '../../helpers';
 import { ButtonType } from '../product/types';

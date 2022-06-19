@@ -1,8 +1,8 @@
+import React, { FunctionComponent, useEffect, useState } from 'react';
 import { Div } from '@components/div';
 import { Modal } from '@components/modal';
 import { Money } from '@components/money';
 import { Colors } from '@core/theme';
-import React, { FunctionComponent, useEffect, useState } from 'react';
 import { useSnackbar } from 'react-simple-snackbar';
 import { getElementWidth } from '../../helpers';
 import { ModalContent } from '../modal-content';
