@@ -1,5 +1,10 @@
 import { ProductCode } from './components/product/types';
-import { PRODUCTS } from './helpers';
+import {
+  getStorageProductQuantity,
+  isDiscountApplicable,
+  PRODUCTS,
+  setStorageProductQuantity,
+} from './helpers';
 import {
   DiscountType,
   PricingRules,
@@ -20,9 +25,8 @@ export class Checkout {
    * @returns itself to allow function chaining
    */
   scan(code: ProductCode): this {
-    const productQuantity =
-      JSON.parse(localStorage.getItem(code) as string) || 0;
-    localStorage.setItem(code, JSON.stringify(productQuantity + 1));
+    const productQuantity = getStorageProductQuantity(code);
+    setStorageProductQuantity(code, productQuantity, 'ADD');
     return this;
   }
 
@@ -32,9 +36,8 @@ export class Checkout {
    * @returns itself to allow function chaining
    */
   remove(code: ProductCode): this {
-    const productQuantity =
-      JSON.parse(localStorage.getItem(code) as string) || 0;
-    localStorage.setItem(code, JSON.stringify(productQuantity - 1));
+    const productQuantity = getStorageProductQuantity(code);
+    setStorageProductQuantity(code, productQuantity, 'REMOVE');
     return this;
   }
 
@@ -43,8 +46,7 @@ export class Checkout {
    */
   total = (): number => {
     const totalPrice = PRODUCTS.reduce((total, { price, productCode }) => {
-      const productQuantity =
-        JSON.parse(localStorage.getItem(productCode) as string) || 0;
+      const productQuantity = getStorageProductQuantity(productCode);
 
       const productPricingRules: PricingRules | undefined =
         this.pricingRules.find(
@@ -53,8 +55,11 @@ export class Checkout {
 
       if (
         productPricingRules &&
-        productPricingRules.discountType === DiscountType.TWO_FOR_ONE &&
-        productQuantity >= productPricingRules.count
+        isDiscountApplicable(
+          DiscountType.TWO_FOR_ONE,
+          productQuantity,
+          productPricingRules,
+        )
       ) {
         const twoForOneDiscount =
           Math.floor(productQuantity * productPricingRules.discount) * price;
@@ -63,8 +68,11 @@ export class Checkout {
 
       if (
         productPricingRules &&
-        productPricingRules.discountType === DiscountType.BULK_DISCOUNT &&
-        productQuantity >= productPricingRules.count
+        isDiscountApplicable(
+          DiscountType.BULK_DISCOUNT,
+          productQuantity,
+          productPricingRules,
+        )
       ) {
         const bulkDiscount =
           productQuantity * price * productPricingRules.discount;
@@ -83,8 +91,7 @@ export class Checkout {
   getProductDiscounts = (): ProductsDiscounts =>
     PRODUCTS.reduce(
       (total, { price, productCode }) => {
-        const productQuantity =
-          JSON.parse(localStorage.getItem(productCode) as string) || 0;
+        const productQuantity = getStorageProductQuantity(productCode);
 
         const productPricingRules: PricingRules | undefined =
           this.pricingRules.find(
@@ -93,8 +100,11 @@ export class Checkout {
 
         if (
           productPricingRules &&
-          productPricingRules.discountType === DiscountType.TWO_FOR_ONE &&
-          productQuantity >= productPricingRules.count
+          isDiscountApplicable(
+            DiscountType.TWO_FOR_ONE,
+            productQuantity,
+            productPricingRules,
+          )
         ) {
           const twoForOneDiscount =
             Math.floor(productQuantity * productPricingRules.discount) * price;
@@ -106,8 +116,11 @@ export class Checkout {
 
         if (
           productPricingRules &&
-          productPricingRules.discountType === DiscountType.BULK_DISCOUNT &&
-          productQuantity >= productPricingRules.count
+          isDiscountApplicable(
+            DiscountType.BULK_DISCOUNT,
+            productQuantity,
+            productPricingRules,
+          )
         ) {
           const bulkDiscount = price * productPricingRules.discount;
           return {
@@ -133,8 +146,7 @@ export class Checkout {
   getSummaryItems(): SummaryItems {
     return PRODUCTS.reduce(
       (total, { price, productCode }) => {
-        const productQuantity =
-          JSON.parse(localStorage.getItem(productCode) as string) || 0;
+        const productQuantity = getStorageProductQuantity(productCode);
 
         return {
           totalQuantity: total.totalQuantity + productQuantity,

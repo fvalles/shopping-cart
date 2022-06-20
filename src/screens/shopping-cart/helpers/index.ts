@@ -1,5 +1,5 @@
 import { ProductCode } from '../components/product/types';
-import { Discounts, ProductType } from '../types';
+import { DiscountType, PricingRules, ProductType } from '../types';
 import capImagePng from '../../../assets/images/products/cap.png';
 import capImageWebp from '../../../assets/images/products/cap.webp';
 import capModalImagePng from '../../../assets/images/products/cap-for-modal.png';
@@ -13,17 +13,22 @@ import shirtImageWebp from '../../../assets/images/products/shirt.webp';
 import shirtModalImagePng from '../../../assets/images/products/shirt-for-modal.png';
 import shirtModalImageWebp from '../../../assets/images/products/shirt-for-modal.webp';
 
-export const DISCOUNTS: Discounts[] = [
+/**
+ * Constants
+ */
+
+export const PRICING_RULES: PricingRules[] = [
   {
-    name: '2x1 Mug offer',
+    count: 2,
+    discount: 0.5,
     productCode: ProductCode.MUG,
+    discountType: DiscountType.TWO_FOR_ONE,
   },
   {
-    name: 'x3 Shirt offer',
+    count: 3,
+    discount: 0.05,
     productCode: ProductCode.SHIRT,
-  },
-  {
-    name: 'Promo code',
+    discountType: DiscountType.BULK_DISCOUNT,
   },
 ];
 
@@ -59,6 +64,10 @@ export const PRODUCTS: ProductType[] = [
 
 export const PRODUCT_TITLES = ['Product Details', 'Quantity', 'Price', 'Total'];
 
+/**
+ * Functions
+ */
+
 export const getElementWidth = (index: number): string => {
   if (index === 0) {
     return '45%';
@@ -71,3 +80,26 @@ export const getElementWidth = (index: number): string => {
 
 export const getJustifyContent = (index: number): string | undefined =>
   index === 0 ? undefined : 'center';
+
+export const getStorageProductQuantity = (productCode: ProductCode): number =>
+  (JSON.parse(localStorage.getItem(productCode) as string) as number) || 0;
+
+export const setStorageProductQuantity = (
+  productCode: ProductCode,
+  productQuantity: number,
+  operation: string,
+): void => {
+  if (operation === 'ADD') {
+    localStorage.setItem(productCode, JSON.stringify(productQuantity + 1));
+  } else if (operation === 'REMOVE') {
+    localStorage.setItem(productCode, JSON.stringify(productQuantity - 1));
+  }
+};
+
+export const isDiscountApplicable = (
+  discountType: DiscountType,
+  productQuantity: number,
+  productPricingRules?: PricingRules,
+): boolean =>
+  productPricingRules?.discountType === discountType &&
+  productQuantity >= productPricingRules.count;

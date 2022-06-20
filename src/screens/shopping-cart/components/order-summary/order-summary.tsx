@@ -8,12 +8,26 @@ import { Spacer } from '@components/spacer';
 import { H1, H2, ListItemSmall } from '@components/typography';
 import styled from 'styled-components';
 import { useSnackbar } from 'react-simple-snackbar';
-import { DISCOUNTS } from '../../helpers';
-import { ProductsDiscounts, SummaryItems } from '../../types';
+import { Discounts, ProductsDiscounts, SummaryItems } from '../../types';
+import { ProductCode } from '../product/types';
 
 /**
  * Constants
  */
+
+const DISCOUNTS: Discounts[] = [
+  {
+    name: '2x1 Mug offer',
+    productCode: ProductCode.MUG,
+  },
+  {
+    name: 'x3 Shirt offer',
+    productCode: ProductCode.SHIRT,
+  },
+  {
+    name: 'Promo code',
+  },
+];
 
 export const CURRENCY = '€';
 
