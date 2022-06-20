@@ -1,8 +1,19 @@
 import { ProductCode } from './components/product/types';
 import { PRODUCTS } from './helpers';
-import { ProductsDiscounts, SummaryItems } from './types';
+import {
+  DiscountType,
+  PricingRules,
+  ProductsDiscounts,
+  SummaryItems,
+} from './types';
 
 export class Checkout {
+  pricingRules: PricingRules[];
+
+  constructor(pricingRules: PricingRules[]) {
+    this.pricingRules = pricingRules;
+  }
+
   /**
    * Scans a product adding it to the current cart.
    * @param code The product identifier
@@ -30,49 +41,78 @@ export class Checkout {
   /**
    * Returns the value of all cart products with the discounts applied.
    */
-  total(): number {
+  total = (): number => {
     const totalPrice = PRODUCTS.reduce((total, { price, productCode }) => {
       const productQuantity =
         JSON.parse(localStorage.getItem(productCode) as string) || 0;
 
-      if (productCode === ProductCode.MUG && productQuantity >= 2) {
-        const mugDiscount = Math.floor(productQuantity / 2) * price;
-        return total + productQuantity * price - mugDiscount;
+      const productPricingRules: PricingRules | undefined =
+        this.pricingRules.find(
+          pricingRule => pricingRule.productCode === productCode,
+        );
+
+      if (
+        productPricingRules &&
+        productPricingRules.discountType === DiscountType.TWO_FOR_ONE &&
+        productQuantity >= productPricingRules.count
+      ) {
+        const twoForOneDiscount =
+          Math.floor(productQuantity * productPricingRules.discount) * price;
+        return total + productQuantity * price - twoForOneDiscount;
       }
 
-      if (productCode === ProductCode.SHIRT && productQuantity >= 3) {
-        const shirtDiscount = productQuantity * price * 0.05;
-        return total + productQuantity * price - shirtDiscount;
+      if (
+        productPricingRules &&
+        productPricingRules.discountType === DiscountType.BULK_DISCOUNT &&
+        productQuantity >= productPricingRules.count
+      ) {
+        const bulkDiscount =
+          productQuantity * price * productPricingRules.discount;
+        return total + productQuantity * price - bulkDiscount;
       }
 
       return total + productQuantity * price;
     }, 0);
 
     return totalPrice;
-  }
+  };
 
   /**
    * Returns the discounts being applied to the shopping cart.
    */
-  getProductDiscounts(): ProductsDiscounts {
-    return PRODUCTS.reduce(
+  getProductDiscounts = (): ProductsDiscounts =>
+    PRODUCTS.reduce(
       (total, { price, productCode }) => {
         const productQuantity =
           JSON.parse(localStorage.getItem(productCode) as string) || 0;
 
-        if (productCode === ProductCode.MUG && productQuantity >= 2) {
-          const mugDiscount = Math.floor(productQuantity / 2) * price;
+        const productPricingRules: PricingRules | undefined =
+          this.pricingRules.find(
+            pricingRule => pricingRule.productCode === productCode,
+          );
+
+        if (
+          productPricingRules &&
+          productPricingRules.discountType === DiscountType.TWO_FOR_ONE &&
+          productQuantity >= productPricingRules.count
+        ) {
+          const twoForOneDiscount =
+            Math.floor(productQuantity * productPricingRules.discount) * price;
           return {
             ...total,
-            [ProductCode.MUG]: mugDiscount,
+            [productCode]: twoForOneDiscount,
           };
         }
 
-        if (productCode === ProductCode.SHIRT && productQuantity >= 3) {
-          const shirtDiscount = price * 0.05;
+        if (
+          productPricingRules &&
+          productPricingRules.discountType === DiscountType.BULK_DISCOUNT &&
+          productQuantity >= productPricingRules.count
+        ) {
+          const bulkDiscount = price * productPricingRules.discount;
           return {
             ...total,
-            [ProductCode.SHIRT]: shirtDiscount * productQuantity,
+            [productCode]: bulkDiscount * productQuantity,
           };
         }
 
@@ -86,7 +126,6 @@ export class Checkout {
         [ProductCode.SHIRT]: 0,
       },
     );
-  }
 
   /**
    * Returns the total quantity and cost of items added to the shopping cart.

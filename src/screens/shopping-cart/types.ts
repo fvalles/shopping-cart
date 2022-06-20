@@ -5,6 +5,18 @@ export interface Discounts {
   productCode?: ProductCode;
 }
 
+export enum DiscountType {
+  TWO_FOR_ONE = 'TWO_FOR_ONE',
+  BULK_DISCOUNT = 'BULK_DISCOUNT',
+}
+
+export interface PricingRules {
+  count: number;
+  discount: number;
+  productCode: ProductCode;
+  discountType: DiscountType;
+}
+
 export interface ProductType
   extends Omit<ProductProps, 'onQuantityButtonClick' | 'quantity'> {}
 
