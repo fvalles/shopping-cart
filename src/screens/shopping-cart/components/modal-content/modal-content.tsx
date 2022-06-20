@@ -120,7 +120,9 @@ export const ModalContent: FunctionComponent<ModalContentProps> = ({
           display="flex"
           justifyContent="flex-end"
           margin="0px 33px 0px 0px">
-          <CloseIconButton onClick={onRequestClose}>
+          <CloseIconButton
+            data-testid="modal-close-icon-button"
+            onClick={onRequestClose}>
             <img alt="cancel icon" src={cancelIcon} />
           </CloseIconButton>
         </Div>
@@ -149,6 +151,7 @@ export const ModalContent: FunctionComponent<ModalContentProps> = ({
             onRequestClose();
             openSnackbar(`One ${name} product was added to the cart!`);
           }}
+          testId={`shopping-cart-${name}-details-modal-add-button`}
           title="Add to cart"
         />
       </ProductInfoWrapper>

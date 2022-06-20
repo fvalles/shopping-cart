@@ -49,7 +49,10 @@ export const ProductDetails: FunctionComponent<ProductDetailsProps> = ({
     justifyContent={getJustifyContent(0)}
     width={getElementWidth(0)}>
     <Figure>
-      <Button onClick={onProductDetailsClick} type="button">
+      <Button
+        data-testid={`${name}-product-detail-image-button`}
+        onClick={onProductDetailsClick}
+        type="button">
         {/** I wrap Image component with <picture> html tag to show WebP images if browser supports them.
          * This is better for SEO/SEM and to use lighter image files */}
         <picture>

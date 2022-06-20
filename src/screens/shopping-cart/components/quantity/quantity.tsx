@@ -10,8 +10,12 @@ import { ButtonType } from '../product/types';
  */
 
 interface QuantityProps {
+  /** Function to be called when an add or subtract button is clicked */
   onClick: (type: ButtonType) => void;
+  /** Product quantity to be rendered inside input element */
   quantity: number;
+  /** String testId that renders a data-testid attribute in the DOM, used for testing. */
+  testId: string;
 }
 
 /**
@@ -44,17 +48,22 @@ const Input = styled.input`
 export const Quantity: FunctionComponent<QuantityProps> = ({
   onClick,
   quantity,
+  testId,
 }) => (
   <Div
     alignItems="center"
     display="flex"
     width={getElementWidth(1)}
     justifyContent={getJustifyContent(1)}>
-    <Button onClick={() => onClick(ButtonType.SUBTRACT)}>
+    <Button
+      data-testid={`${testId}-subtract-button`}
+      onClick={() => onClick(ButtonType.SUBTRACT)}>
       <ButtonBig>-</ButtonBig>
     </Button>
     <Input min="0" type="number" value={quantity} readOnly />
-    <Button onClick={() => onClick(ButtonType.ADD)}>
+    <Button
+      data-testid={`${testId}-add-button`}
+      onClick={() => onClick(ButtonType.ADD)}>
       <ButtonBig>+</ButtonBig>
     </Button>
   </Div>

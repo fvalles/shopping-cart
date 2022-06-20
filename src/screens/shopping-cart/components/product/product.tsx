@@ -64,7 +64,10 @@ export const Product: FunctionComponent<ProductProps> = ({
 
   return (
     <>
-      <Modal isOpen={modalIsOpen} label={`${name} product details`}>
+      <Modal
+        isOpen={modalIsOpen}
+        label={`${name} product details`}
+        testId={`shopping-cart-${name}-details-modal`}>
         <ModalContent
           modalImageSourcePng={modalImageSourcePng}
           modalImageSourceWebp={modalImageSourceWebp}
@@ -83,7 +86,11 @@ export const Product: FunctionComponent<ProductProps> = ({
         onProductDetailsClick={openProductDetailsModal}
         productCode={productCode}
       />
-      <Quantity quantity={quantity} onClick={handleQuantityButtonClick} />
+      <Quantity
+        onClick={handleQuantityButtonClick}
+        quantity={quantity}
+        testId={name}
+      />
       <Div
         alignItems="center"
         display="flex"

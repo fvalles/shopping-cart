@@ -15,7 +15,7 @@ import { ProductsDiscounts, SummaryItems } from '../../types';
  * Constants
  */
 
-const CURRENCY = '€';
+export const CURRENCY = '€';
 
 const SNACKBAR_DURATION = 4000;
 
@@ -131,6 +131,7 @@ export const OrderSummary: FunctionComponent<OrderSummaryProps> = ({
               : `Your ${totalQuantity} selected item with a total cost of ${totalPrice}${CURRENCY} is ready to be purchased!`,
           )
         }
+        testId="order-summary-checkout-button"
         title="Checkout"
       />
     </Aside>

@@ -20,6 +20,8 @@ interface ButtonProps {
   disabled?: boolean;
   /** Action to execute when the button is clicked */
   onClick: () => void;
+  /** String testId that renders a data-testid attribute in the DOM, used for testing. */
+  testId: string;
   /** Text to be displayed inside the button */
   title: string;
 }
@@ -46,10 +48,12 @@ export const Button: FunctionComponent<ButtonProps> = ({
   color,
   disabled,
   onClick,
+  testId,
   title,
 }) => (
   <StyledButton
     background={disabled ? 'disabled' : background}
+    data-testid={testId}
     disabled={disabled}
     onClick={onClick}>
     <ButtonSmall color={color}>{title}</ButtonSmall>

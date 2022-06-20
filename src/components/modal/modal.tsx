@@ -12,6 +12,8 @@ interface ModalProps {
   isOpen: boolean;
   /** String indicating how the content container should be announced to screenreaders */
   label: string;
+  /** String testId that renders a data-testid attribute in the DOM, used for testing. */
+  testId: string;
 }
 
 /**
@@ -41,6 +43,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
   children,
   isOpen,
   label,
+  testId,
 }) => (
   <ModalWrapper
     ariaHideApp={false}
@@ -48,7 +51,8 @@ export const Modal: FunctionComponent<ModalProps> = ({
     isOpen={isOpen}
     shouldCloseOnOverlayClick={false}
     shouldCloseOnEsc={false}
-    style={MODAL_STYLES}>
+    style={MODAL_STYLES}
+    testId={testId}>
     {children}
   </ModalWrapper>
 );
