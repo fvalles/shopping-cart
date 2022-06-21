@@ -1,4 +1,54 @@
-import { getElementWidth, getJustifyContent } from '..';
+import { ProductCode } from '@screens/shopping-cart/components/product/types';
+import { DiscountType, PricingRules } from '@screens/shopping-cart/types';
+import { getElementWidth, getJustifyContent, isDiscountApplicable } from '..';
+
+describe('isDiscountApplicable helper function', () => {
+  const mockedPricingRules: PricingRules = {
+    count: 2,
+    discount: 0.5,
+    productCode: ProductCode.MUG,
+    discountType: DiscountType.TWO_FOR_ONE,
+  };
+
+  it('should return false if productPricingRules param is undefined', () => {
+    const productQuantity = 1;
+    const result = isDiscountApplicable(
+      DiscountType.TWO_FOR_ONE,
+      productQuantity,
+    );
+    expect(result).toBeFalsy();
+  });
+
+  it('should return false if productPricingRules discount type does not match', () => {
+    const productQuantity = 1;
+    const result = isDiscountApplicable(
+      DiscountType.BULK_DISCOUNT,
+      productQuantity,
+      mockedPricingRules,
+    );
+    expect(result).toBeFalsy();
+  });
+
+  it('should return false if productPricingRules count is greater than product quantity', () => {
+    const productQuantity = 1;
+    const result = isDiscountApplicable(
+      DiscountType.TWO_FOR_ONE,
+      productQuantity,
+      mockedPricingRules,
+    );
+    expect(result).toBeFalsy();
+  });
+
+  it('should return true if productPricingRules para mis defined, count is not greater than product quantity and discount type match', () => {
+    const productQuantity = 5;
+    const result = isDiscountApplicable(
+      DiscountType.TWO_FOR_ONE,
+      productQuantity,
+      mockedPricingRules,
+    );
+    expect(result).toBeTruthy();
+  });
+});
 
 describe('getElementWidth helper function', () => {
   it('should return 45% when index param is 0', () => {

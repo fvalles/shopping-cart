@@ -68,6 +68,14 @@ export const PRODUCT_TITLES = ['Product Details', 'Quantity', 'Price', 'Total'];
  * Functions
  */
 
+export const isDiscountApplicable = (
+  discountType: DiscountType,
+  productQuantity: number,
+  productPricingRules?: PricingRules,
+): boolean =>
+  productPricingRules?.discountType === discountType &&
+  productQuantity >= productPricingRules.count;
+
 export const getElementWidth = (index: number): string => {
   if (index === 0) {
     return '45%';
@@ -95,11 +103,3 @@ export const setStorageProductQuantity = (
     localStorage.setItem(productCode, JSON.stringify(productQuantity - 1));
   }
 };
-
-export const isDiscountApplicable = (
-  discountType: DiscountType,
-  productQuantity: number,
-  productPricingRules?: PricingRules,
-): boolean =>
-  productPricingRules?.discountType === discountType &&
-  productQuantity >= productPricingRules.count;
