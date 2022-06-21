@@ -56,7 +56,7 @@ interface OrderSummaryProps {
 const Aside = styled.aside`
   background-color: ${({ theme }) => theme.Colors.summaryBackground};
   color: ${({ theme }) => theme.Colors.summaryText};
-  display: flex;
+  display: block;
   flex-flow: column wrap;
   padding: 40px 32px;
   width: 312px;
