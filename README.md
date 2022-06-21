@@ -1,46 +1,28 @@
-# Getting Started with Create React App
+# Shopping Cart
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## General information
 
-## Available Scripts
+This repository holds a **shopping cart** app. 👕 🧢 ☕️
 
-In the project directory, you can run:
+It was developed with **React JS**, **Typescript** and **Styled Components**!
 
-### `npm start`
+You can see the final result either running `npm start` from the CLI or visiting it on my Netlify account!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**[👉🏼 View shopping cart on Netlify 👈🏼](https://shopping-cart-fvalles.netlify.app/)**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Coding details
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Reusable components** were created. They are located in src/components. Each of them has its own markdown file which shows different usage examples.
+- **Path aliases** were created to be able to import components and interfaces more easily. Example: `import { Div } from '@components/div'; `
+- **Typographic reusable components** are located in `src/typography`. Below I attach an image of how I decided which components to create.
+  ![typography-components-designed](typography-components-designed.png)
+- **A color palette and common fonts** were created in `src/core/theme` and shared through a ThemeProvider to the whole app.
+- A **global-style.ts** file was created in `src/core/theme` to hold all CSS common styles.
+- **WebP image support** was added to improve SEO/SEM and user experience, as WebP images are lighter compared to PNG, JPG, JPEG and GIF formats.
+- To handle vertical spaces, a reusable `<Spacer />` component was created.
+- All PNG (that act as a fallback if the user's browser doesn't support WebP) and WebP images were compressed with `tinypng.com` to save space in the app while maintaining image quality. Below I attach the compression results obtained:
+  ![images-compression-results](images-compression-results.png)
+- `<Snackbar />` component was used to tell the user that a product was added to the cart from the product details modal screen.
+- The checkout button informs the user with a `<Snackbar />` that the selected items are ready to be purchased!
+- `localStorage` was used throgh the `Checkout` class to save added products across browser sessions.
+- **Unit tests** were created under a `__tests__` folder across the entire app for: **components, screen, functions and custom hooks**.
