@@ -15,7 +15,7 @@ describe('modal component', () => {
     const result = renderer
       .create(
         <ThemeProvider>
-          <Modal isOpen={false} label="some label">
+          <Modal isOpen={false} label="some label" testId="some-test-id">
             <H1>Lorem ipsum</H1>
           </Modal>
         </ThemeProvider>,
@@ -31,7 +31,7 @@ describe('modal component', () => {
       .create(
         <ThemeProvider>
           <section>
-            <Modal isOpen label="some label">
+            <Modal isOpen label="some label" testId="some-test-id">
               <H1>Lorem ipsum</H1>
             </Modal>
           </section>
