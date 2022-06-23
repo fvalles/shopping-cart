@@ -9,7 +9,11 @@ describe('button component', () => {
     const result = renderer
       .create(
         <ThemeProvider>
-          <Button onClick={jest.fn()} title="Some Title" />
+          <Button
+            onClick={jest.fn()}
+            testId="some-test-id"
+            title="Some Title"
+          />
         </ThemeProvider>,
       )
       .toJSON();
@@ -33,6 +37,7 @@ describe('button component', () => {
             background="white"
             color="primary"
             onClick={jest.fn()}
+            testId="some-test-id"
             title="Some Title"
           />
         </ThemeProvider>,

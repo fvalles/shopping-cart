@@ -19,6 +19,7 @@ exports[`button component should render with title, onClick function and custom 
 
 <button
   className="c0"
+  data-testid="some-test-id"
   onClick={[MockFunction]}
 >
   <span
@@ -49,6 +50,7 @@ exports[`button component should render with title, onClick function and default
 
 <button
   className="c0"
+  data-testid="some-test-id"
   onClick={[MockFunction]}
 >
   <span
