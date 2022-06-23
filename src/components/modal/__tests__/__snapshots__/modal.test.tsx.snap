@@ -34,6 +34,7 @@ exports[`modal component should render if isOpen property is true 1`] = `
       aria-label="some label"
       aria-modal={true}
       className="ReactModal__Content"
+      data-testid="some-test-id"
       onClick={[Function]}
       onKeyDown={[Function]}
       onMouseDown={[Function]}
