@@ -6,7 +6,7 @@ This repository holds a **shopping cart** app. 👕 🧢 ☕️
 
 It was developed with **React JS**, **Typescript** and **Styled Components**! 🚀
 
-You can see the final result either running `npm start` from the CLI or visiting it on my Netlify account!
+You can see the final result either running `npm i` + `npm start` from the CLI or visiting it on my Netlify account!
 
 **[👉🏼 View shopping cart on Netlify 👈🏼](https://shopping-cart-fvalles.netlify.app/)**
 
