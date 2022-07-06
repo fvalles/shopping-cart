@@ -20,8 +20,7 @@ You can see the final result either running `npm start` from the CLI or visiting
 - A **global-style.ts** file was created in `src/core/theme` to hold all CSS common styles.
 - **WebP image support** was added to improve SEO/SEM and user experience, as WebP images are lighter compared to PNG, JPG, JPEG and GIF formats.
 - To handle **vertical spaces**, a reusable `<Spacer />` component was created.
-- All PNG (that act as a fallback if the user's browser doesn't support WebP) and WebP images were **compressed** with `tinypng.com` to save space in the app while maintaining image quality. Below I attach the compression results obtained:
-  ![images-compression-results](images-compression-results.png)
+- All PNG (that act as a fallback if the user's browser doesn't support WebP) and WebP images were **compressed** with `tinypng.com` to save space in the app while maintaining image quality.
 - `<Snackbar />` component was used to tell the user that a product was added to the cart from the product details modal screen.
 - The checkout button informs the user with a `<Snackbar />` that the selected items are ready to be purchased!
 - `localStorage` was used throgh the `Checkout` class to save added products across browser sessions.
