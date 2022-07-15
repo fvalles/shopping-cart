@@ -14,8 +14,7 @@ You can see the final result either running `npm i` + `npm start` from the CLI o
 
 - **Reusable components** were created. They are located in `src/components`. Each of them has its own markdown file which shows different usage examples.
 - **Path aliases** were created to be able to import components and interfaces more easily. Example: `import { Div } from '@components/div'; `
-- **Typographic reusable components** are located in `src/typography`. Below I attach an image of how I decided which components to create.
-  ![typography-components-designed](typography-components-designed.png)
+- **Typographic reusable components** are located in `src/typography`.
 - **A color palette and common fonts** were created in `src/core/theme` and shared through a `<ThemeProvider />` to the whole app.
 - A **global-style.ts** file was created in `src/core/theme` to hold all CSS common styles.
 - **WebP image support** was added to improve SEO/SEM and user experience, as WebP images are lighter compared to PNG, JPG, JPEG and GIF formats.
